@@ -320,13 +320,15 @@ impl Server {
             .methods
             .unwrap_or(DavMethodSet::from_vec(vec!["GET", "HEAD"]).unwrap());
         let hide_symlinks = location.hide_symlinks.clone().unwrap_or(true);
+        let read_buffer_size = location.read_buffer_size.unwrap_or(16384);
 
         let mut config = DavConfig::new()
             .filesystem(fs)
             .strip_prefix(prefix)
             .methods(methods)
             .hide_symlinks(hide_symlinks)
-            .autoindex(location.autoindex);
+            .autoindex(location.autoindex)
+            .read_buf_size(read_buffer_size);
         if let Some(auth_user) = auth_user {
             config = config.principal(auth_user);
         }

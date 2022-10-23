@@ -111,6 +111,8 @@ pub struct Location {
     pub case_insensitive: Option<CaseInsensitive>,
     #[serde(deserialize_with = "deserialize_opt_enum", default)]
     pub on_notfound:      Option<OnNotfound>,
+    #[serde(default, alias = "read-buffer-size")]
+    pub read_buffer_size: Option<usize>,
 }
 
 #[derive(FromStr, Debug, Clone, Copy)]

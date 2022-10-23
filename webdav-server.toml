@@ -149,6 +149,8 @@
   # "ms" means "for Microsoft clients".
   case-insensitive = "false"
 
+  # Read buffer size in bytes (default: 16384).
+  read-buffer-size = 16384
+
 # Another location definition could follow.
 #[[location]]
-
